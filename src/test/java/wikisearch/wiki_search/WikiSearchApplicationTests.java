@@ -8,6 +8,6 @@ class WikiSearchApplicationTests {
 
     @Test
     void contextLoads() {
-        // Тест проверяет загрузку контекста Spring
+        
     }
 }

@@ -14,7 +14,6 @@ public class WikiService {
         String url = WIKI_API_URL + term;
         String response = restTemplate.getForObject(url, String.class);
 
-        // Парсинг JSON (упрощенный пример)
         String title = term;
         String extract = response.contains("extract") ? 
             response.split("\"extract\":\"")[1].split("\"")[0] : 
