@@ -14,11 +14,14 @@ public class WikiService {
         String url = WIKI_API_URL + term;
         String response = restTemplate.getForObject(url, String.class);
 
-        String title = term;
-        String extract = response.contains("extract") ? 
-            response.split("\"extract\":\"")[1].split("\"")[0] : 
-            "No results found";
+        String extract;
+        if (response.contains("extract")) {
+            extract = response.split("\"extract\":\"")[1].split("\"")[0];
+        } 
+        else {
+            extract = "No results found";
+        }
 
-        return new WikiArticle(title, extract);
+        return new WikiArticle(term, extract);
     }
 }
